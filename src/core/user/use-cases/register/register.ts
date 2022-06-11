@@ -1,4 +1,4 @@
-import { CreateUser } from '@/core/types/user'
+import { CreateUser } from '@/core/user/types'
 import { toError } from 'fp-ts/Either'
 import { TaskEither, tryCatch } from 'fp-ts/TaskEither'
 

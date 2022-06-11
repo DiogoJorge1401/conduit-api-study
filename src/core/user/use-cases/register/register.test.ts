@@ -1,7 +1,6 @@
-import { unsafeEmail } from '@/config/tests/fixures'
-import { CreateUser } from '@/core/types/user'
+import { mapAll, unsafeEmail } from '@/config/tests/fixures'
+import { CreateUser } from '@/core/user/types'
 import { pipe } from 'fp-ts/function'
-import { map } from 'fp-ts/TaskEither'
 import { OutsideRegister, register } from './register'
 
 const registerOk: OutsideRegister<string> = async (data) => {
@@ -18,6 +17,6 @@ it('should register a user successfully', async () => {
   return pipe(
     data,
     register(registerOk),
-    map(result => expect(result).toBe(`user ${data.username} registred successfully`)),
+    mapAll(result => expect(result).toBe(`user ${data.username} registred successfully`)),
   )()
 })
