@@ -9,7 +9,7 @@
     "dev": "nodemon --exec sucrase-node src/index.ts",
     "test": "jest --passWithNoTests && yarn test:integration",
     "test:watch": "jest --watch",
-    "test:integration": "jest --passWithNoTests --config jest.config.integration.js",
+    "test:integration": "jest --passWithNoTests --config jest.config.integration.ts",
     "test:integration:watch": " yarn test:integration --watch",
     "lint": "eslint . --ext js,ts",
     "lint:fix": "eslint --fix . --ext js,ts",
@@ -46,6 +46,7 @@
     "nodemon": "2.0.16",
     "sucrase": "3.21.0",
     "ts-jest": "28.0.4",
+    "ts-node": "^10.8.1",
     "typescript": "4.7.3"
   }
 }

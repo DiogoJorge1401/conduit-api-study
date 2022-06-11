@@ -1,6 +1,4 @@
-'use strict'
-
-module.exports = {
+export default {
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
