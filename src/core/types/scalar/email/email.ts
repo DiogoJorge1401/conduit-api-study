@@ -7,7 +7,7 @@ type EmailBrand = {
 
 const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
 
-function isEmail(value: string) {
+function isEmail (value: string) {
   return emailRegex.test(value)
 }
 
