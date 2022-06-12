@@ -16,6 +16,8 @@ export const slugCodec = withMessage(
 
 const SlugRegex = /^[a-z0-9]+(?:(?:-|_)+[a-z0-9]+)*$/gm;
 
+export type Slug = t.TypeOf<typeof slugCodec>;
+
 function isSlug (value: string) {
 	return SlugRegex.test(value);
 }

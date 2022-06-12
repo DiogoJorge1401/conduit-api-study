@@ -1,4 +1,4 @@
-import { emailCodec, slugCodec, urlCodec } from '@/core/types';
+import { emailCodec, passwordCodec, slugCodec, urlCodec } from '@/core/types';
 import * as t from 'io-ts';
 
 export const userCodec = t.type({
@@ -12,9 +12,9 @@ export const userCodec = t.type({
 export type User = t.TypeOf<typeof userCodec>;
 
 export const createUserCodec = t.type({
-	username: userCodec,
+	username: slugCodec,
 	email: emailCodec,
-	password: t.string,
+	password: passwordCodec,
 });
 
 export type CreateUser = t.TypeOf<typeof createUserCodec>;

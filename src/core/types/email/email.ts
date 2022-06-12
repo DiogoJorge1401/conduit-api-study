@@ -19,3 +19,5 @@ export const emailCodec = withMessage(
 	),
 	() => 'Invalid Email',
 );
+
+export type Email = t.TypeOf<typeof emailCodec>;
