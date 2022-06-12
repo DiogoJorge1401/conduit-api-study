@@ -5,10 +5,10 @@ import { passwordCodec } from './password';
 
 it('should validate the password correctly', () => {
 	return pipe(
-		'sue1234',
+		'sue12345',
 		passwordCodec.decode,
 		fromEither,
-		mapAll((result) => expect(result).toBe('sue1234')),
+		mapAll((result) => expect(result).toBe('sue12345')),
 	)();
 });
 it('should return an error if password lenght is less than 4', () => {
@@ -16,7 +16,7 @@ it('should return an error if password lenght is less than 4', () => {
 		'sue',
 		passwordCodec.decode,
 		fromEither,
-		mapAll((result) => expect(getErrorMessage(result)).toBe('Password must have between 4 and 20 characters')),
+		mapAll((result) => expect(getErrorMessage(result)).toBe('Password must have between 8 and 20 characters')),
 	)();
 });
 it('should return an error if password lenght is greater than 20', () => {
@@ -24,6 +24,6 @@ it('should return an error if password lenght is greater than 20', () => {
 		'passwordWithLongerThan20Characters',
 		passwordCodec.decode,
 		fromEither,
-		mapAll((result) => expect(getErrorMessage(result)).toBe('Password must have between 4 and 20 characters')),
+		mapAll((result) => expect(getErrorMessage(result)).toBe('Password must have between 8 and 20 characters')),
 	)();
 });
