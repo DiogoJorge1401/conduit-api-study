@@ -10,7 +10,7 @@ export const articleCodec = t.type({
   body: t.string,
   tagList: t.array(tagCodec),
   favorited: t.boolean,
-  favoritesCount: t.number,
+  favoritesCount: profileCodec,
   author: profileCodec,
   createdAt: dateCodec,
   updatedAt: dateCodec,
