@@ -1,16 +1,8 @@
 import { pipe } from 'fp-ts/lib/function';
 import { map, mapLeft, TaskEither } from 'fp-ts/TaskEither';
-import { Email, Password, Slug } from '@/core/types';
 
-export const unsafeEmail = (value: string): Email => {
-	return value as Email;
-};
-export const unsafeUsername = (value: string): Slug => {
-	return value as Slug;
-};
-
-export const unsafePassword = (value: string): Password => {
-	return value as Password;
+export const unsafe = <T>(value: unknown): T => {
+	return value as T;
 };
 
 type Callback<E, T> = (a: E | T) => unknown;
