@@ -1,6 +1,6 @@
-import * as t from 'io-ts'
-import { slugCodec } from '@/core/types'
+import * as t from 'io-ts';
+import { slugCodec } from '@/core/types';
 
-export const tagCodec = slugCodec
+export const tagCodec = slugCodec;
 
-export type Tag = t.TypeOf<typeof tagCodec>
+export type Tag = t.TypeOf<typeof tagCodec>;

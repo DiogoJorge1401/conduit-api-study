@@ -2,19 +2,21 @@ module.exports = {
   env: {
     es2021: true,
     node: true,
+    jest: true,
   },
+  root: true,
   extends: [
     'plugin:jest/recommended',
-    'standard',
+    'plugin:@typescript-eslint/recommended',
   ],
+  plugins: ['@typescript-eslint/eslint-plugin'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 12,
+    project: 'tsconfig.json',
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
+  ignorePatterns: ['.eslintrc.js'],
   rules: {
     'comma-dangle': ['error', {
       arrays: 'always-multiline',
@@ -29,5 +31,17 @@ module.exports = {
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/semi': ['error', 'always'],
+    '@typescript-eslint/member-delimiter-style': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/brace-style': 'off',
+    'no-tabs': 0,
+    'space-before-function-paren': ['error', 'always'],
+    semi: ['error', 'always'],
+    indent: ['error', 'tab'],
   },
 }
