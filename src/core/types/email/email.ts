@@ -2,10 +2,10 @@ import * as t from 'io-ts';
 import { withMessage } from 'io-ts-types';
 
 type EmailBrand = {
-  readonly Email: any
+	readonly Email: any
 };
 
-const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const emailRegex = /^\w+.+?@\w+.+?$/;
 
 function isEmail (value: string) {
 	return emailRegex.test(value);

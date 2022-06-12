@@ -2,7 +2,7 @@ import * as t from 'io-ts';
 import { withMessage } from 'io-ts-types';
 
 type SlugBrand = {
-  readonly Slug: any
+	readonly Slug: any
 };
 
 export const slugCodec = withMessage(
@@ -14,10 +14,10 @@ export const slugCodec = withMessage(
 	() => 'Invalid Slug',
 );
 
-const SlugRegex = /^[a-z0-9]+(?:(?:-|_)+[a-z0-9]+)*$/gm;
+const SlugRegex = /^[a-z0-9]+(?:(?:-|_)+[a-z0-9]+)*$/;
 
 export type Slug = t.TypeOf<typeof slugCodec>;
 
 function isSlug (value: string) {
-	return SlugRegex.test(value);
+	return SlugRegex.test(value) && value.length > 2;
 }
