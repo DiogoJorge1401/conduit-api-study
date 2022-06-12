@@ -1,6 +1,6 @@
 import { profileCodec } from '@/core/profile/types'
 import { tagCodec } from '@/core/tag/types'
-import { slugCodec, dateCodec } from '@/core/types'
+import { dateCodec, positiveCodec, slugCodec } from '@/core/types'
 import * as t from 'io-ts'
 
 export const articleCodec = t.type({
@@ -10,7 +10,7 @@ export const articleCodec = t.type({
   body: t.string,
   tagList: t.array(tagCodec),
   favorited: t.boolean,
-  favoritesCount: profileCodec,
+  favoritesCount: positiveCodec,
   author: profileCodec,
   createdAt: dateCodec,
   updatedAt: dateCodec,
@@ -20,7 +20,7 @@ export type Article = t.TypeOf<typeof articleCodec>
 
 export const articlesCodec = t.type({
   articles: t.array(articleCodec),
-  articlesCount: t.number,
+  articlesCount: positiveCodec,
 })
 
 export type Articles = t.TypeOf<typeof articlesCodec>
