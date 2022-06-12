@@ -4,22 +4,22 @@ import { fromEither } from 'fp-ts/TaskEither'
 import { emailCodec } from './email'
 
 it('should validate the email correctly', () => {
-  pipe(
+  return pipe(
     'sue12@mail.com',
     emailCodec.decode,
     fromEither,
     mapAll(result =>
       expect(result).toBe('sue12@mail.com'),
     ),
-  )
+  )()
 })
 
 it('should return an error if the email is invalid', () => {
-  pipe(
+  return pipe(
     'invalid-mail',
     emailCodec.decode,
     fromEither,
-    mapAll((error) => expect(getErrorMessage(error)).toBe('Invalid email'),
+    mapAll((error) => expect(getErrorMessage(error)).toBe('Invalid Email'),
     ),
-  )
+  )()
 })

@@ -11,10 +11,8 @@ export const urlCodec = withMessage(
     (value): value is t.Branded<string, URLBrand> => isValidUrl(value),
     'URL',
   ),
-  () => 'Invalid url',
+  () => 'Invalid Url',
 )
-
-export type URL = t.TypeOf<typeof urlCodec>
 
 const URLRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)$/
 

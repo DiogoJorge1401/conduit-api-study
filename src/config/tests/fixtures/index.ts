@@ -1,9 +1,8 @@
-import { Email } from '@/core/types'
 import { pipe } from 'fp-ts/lib/function'
 import { map, mapLeft, TaskEither } from 'fp-ts/TaskEither'
 
-export const unsafeEmail = (value: string): Email => {
-  return value as Email
+export const unsafeEmail = (value: string): any => {
+  return value as any
 }
 
 type Callback<E, T> = (a: E | T) => unknown

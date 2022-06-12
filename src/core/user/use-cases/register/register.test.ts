@@ -13,7 +13,7 @@ const data: CreateUser = {
   password: 'sue1234',
 }
 
-it('should register a user successfully', async () => {
+it('should register a user successfully', () => {
   return pipe(
     data,
     register(registerOk),
