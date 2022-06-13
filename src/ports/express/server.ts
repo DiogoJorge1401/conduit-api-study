@@ -1,7 +1,8 @@
-import { OutsideRegisterResult, registerUserAdapter } from '@/adapters/user/register-user-adapter';
+import * as TE from 'fp-ts/TaskEither';
 import e, { Request, Response } from 'express';
 import { pipe } from 'fp-ts/function';
-import * as TE from 'fp-ts/TaskEither';
+import { registerUserInDBAdapter } from '@/adapters/ports/db';
+import { registerUserUseCaseAdapter } from '@/adapters/use-cases/user';
 
 const app = e();
 
@@ -9,18 +10,10 @@ const port = process.env.PORT;
 
 app.use(e.json());
 
-
-const outsideRegister: OutsideRegisterResult = async (data) => (
-	{
-		success: true,
-		data,
-	}
-);
-
 app.post('/api/users', async (req: Request, res: Response) => {
 	return pipe(
 		req.body,
-		registerUserAdapter(outsideRegister),
+		registerUserUseCaseAdapter(registerUserInDBAdapter),
 		TE.map(result => res
 			.status(201)
 			.json(result),
