@@ -2,7 +2,10 @@ import { OutsideRegisterType } from '@/adapters/use-cases/user';
 
 export const registerUserInMemory: OutsideRegisterType = async (data) => (
 	{
-		success: true,
-		data,
+		email: data.email,
+		username: data.username,
+		bio: '',
+		image: '',
+		token: '',
 	}
 );
