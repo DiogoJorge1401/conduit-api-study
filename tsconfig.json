@@ -1,55 +1,63 @@
 {
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-    /* Basic Options */
-    "target": "esnext",
-    "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./",
-    /* Strict Type-Checking Options */
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
-    "strictBindCallApply": true,
     "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
     "noImplicitThis": true,
+    "noImplicitReturns": true,
     "alwaysStrict": true,
-    /* Additional Checks */
+    "esModuleInterop": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
+    "target": "ES2021",
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "incremental": true,
+    "noFallthroughCasesInSwitch": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
-    "noPropertyAccessFromIndexSignature": true,
-    /* Module Resolution Options */
-    "moduleResolution": "node",
-    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": "src",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "./*"
+      ],
+      "@user/*": [
+        "modules/user/*"
+      ],
+      "@budget-box/*": [
+        "modules/budget-box/*"
+      ],
+      "@transaction/*": [
+        "modules/transaction/*"
+      ],
+      "@shared/*": [
+        "modules/shared/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@utils/*": [
+        "utils/*"
       ]
     },
-    "rootDirs": [
-      "./src"
-    ],
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    /* Advanced Options */
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "incremental": true,
-    "skipDefaultLibCheck": true,
   },
-  "include": [
-    "**/*.ts"
-  ],
   "exclude": [
     "node_modules",
     "dist"
