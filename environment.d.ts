@@ -3,8 +3,9 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       CUSTOM_ENV: string
+      PORT: number
     }
   }
 }
 
-export {};
+export { };

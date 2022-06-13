@@ -6,7 +6,7 @@ import { validateCodec } from '@/helpers/validate-codec/validate-codec';
 
 export type OutsideRegisterUser<A> = (data: CreateUser) => Promise<A>;
 
-type RegisterUser = <A>(outsideRegister: OutsideRegisterUser<A>) =>
+export type RegisterUser = <A>(outsideRegister: OutsideRegisterUser<A>) =>
   (data: CreateUser) => TE.TaskEither<Error, A>;
 
 export const registerUser: RegisterUser = (outsideRegister) => (data) => {

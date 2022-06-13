@@ -1,1 +1,1 @@
-console.log('ts!', process.env.CUSTOM_ENV);
+import '@/ports/express/server';
